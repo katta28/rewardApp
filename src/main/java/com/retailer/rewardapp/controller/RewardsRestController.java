@@ -9,6 +9,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.retailer.rewardapp.dto.RewardMonthTot;
@@ -41,9 +42,22 @@ public class RewardsRestController {
 			}
 
 		} catch(Exception ex) {
-
+			ResourseNotFound rex = new ResourseNotFound("Resource Not found");
 		}
 		System.out.println("Before returing results");
 		return customerRewardsList;
 	}
+	@GetMapping(value = "/invokeException")
+	public @ResponseBody Object invokeException()throws Exception {
+		
+		System.out.println("Custom exception");
+		try {
+			 throw new RuntimeException();
+
+		} catch(RuntimeException ex) {
+			ResourseNotFound rex = new ResourseNotFound("Check your Url");
+			return rex.getMessage();
+		}
+	}
 }
+

@@ -83,7 +83,6 @@ public class SpreadSheetProcessor {
 					Map<String,BigDecimal> monthTotMap = new LinkedHashMap<>();
 					for (Customer cus : customerList) {
 						String  month = new SimpleDateFormat("MMMM").format(cus.getDateOfPurchase());
-						System.out.println(month);
 						BigDecimal rewardpoint50 = BigDecimal.ZERO;
 						BigDecimal rewardpoint100 = BigDecimal.ZERO;
 						if (cus.getPrice().compareTo(new BigDecimal("50")) == 1) {
@@ -106,7 +105,6 @@ public class SpreadSheetProcessor {
 						List<BigDecimal> monthlyValuesList = new ArrayList(monthTotMap.values());
 						BigDecimal total = monthlyValuesList.stream()
 								.reduce(BigDecimal.ZERO,BigDecimal::add);
-						System.out.println(total);
 						monthTotMap.put("Total", total);
 					}
 					rewardvaluesByIDMonthTot.put(entry.getKey(), monthTotMap);				
