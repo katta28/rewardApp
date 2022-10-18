@@ -9,3 +9,5 @@ I used eclipse as my IDE. Once the project is up then type the URL http://localh
 
 The unit test included is RewardappApplicationTests.java. Can be run through an IDE by  choosing run as junit. I did not use it to run this particular test case but
 maven could be used to run it. The command is mvn test -Dtest="RewardappApplicationTests"
+
+Use this Url to invoke an exception. http://localhost:8080/invokeException. This is done to give a simple example of Exception invokcation and Handling. 
