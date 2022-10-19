@@ -9,7 +9,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.retailer.rewardapp.dto.RewardMonthTot;
@@ -23,6 +22,7 @@ public class RewardsRestController {
 	SpreadSheetProcessor processor;
 
 
+	/*Main method that invokes the service class to read the spread sheet and display the results back */
 	@GetMapping(value = "/fetchRewardResults")
 	public @ResponseBody List<RewardMonthTot> getRewardResults()throws Exception {
 		
@@ -47,6 +47,7 @@ public class RewardsRestController {
 		System.out.println("Before returing results");
 		return customerRewardsList;
 	}
+	/*Example of how an exception is handled when resource is not found. */
 	@GetMapping(value = "/invokeException")
 	public @ResponseBody Object invokeException()throws Exception {
 		
